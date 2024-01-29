@@ -10,6 +10,6 @@ import random
 import typing
 
 
-async def wait_random(max_delay: int) -> float:
+async def wait_random(max_delay: int = 10) -> float:
     """Returns a random number between 0 and max_value"""
     return random.uniform(0, max_delay)
