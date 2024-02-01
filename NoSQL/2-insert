@@ -1,10 +1,6 @@
 // MongoDB script that inserts a document in the collection 'school'.
 holberton_db = process.argv[2]
-use holberton_db
-db.dropDatabase()
-db.createCollection("school")
-db.school.deleteMany({})
-db.school.insertOne(
+db.school.insert(
 	{
 	name: "Holberton school"
 	}
