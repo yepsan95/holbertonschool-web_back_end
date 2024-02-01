@@ -1,2 +1,2 @@
 // MongoDB script that lists all documents in the collection school.
-db.collection.find()
+db.school.find()
