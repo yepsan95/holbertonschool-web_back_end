@@ -1,6 +1,7 @@
 // MongoDB script that inserts a document in the collection 'school'.
 holberton_db = process.argv[2]
-db.collection.insertOne(
+db.createCollection("school")
+db.school.insertOne(
 	{
 	name: "Holberton school"
 	}
