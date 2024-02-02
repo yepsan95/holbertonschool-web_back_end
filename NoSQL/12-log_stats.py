@@ -21,7 +21,7 @@ def log_stats(col):
 
 
 if __name__ == '__main__':
-    client = MongoClient()
+    client = MongoClient("mongodb://127.0.0.1:27017")
     db = client.logs
     col = db.nginx
     log_stats(col)
