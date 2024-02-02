@@ -18,6 +18,6 @@ if __name__ == '__main__':
         output = col.count_documents({"method": method})
         print(f"\tmethod {method}: {output}")
 
-    status_check = col.count_documents({"path": "/status"})
+    status_check = col.count_documents({"method": "GET", "path": "/status"})
     print(f"{status_check} status check")
     client.close()
