@@ -4,11 +4,8 @@
 from pymongo import MongoClient
 
 
-def log_stats():
+def log_stats(col):
     """Prints stats about Nginx logs stored in MongoDB"""
-    client = MongoClient()
-    db = client.logs
-    col = db.nginx
 
     number_of_logs = col.count_documents({})
     print(f"{number_of_logs} logs")
@@ -22,8 +19,11 @@ def log_stats():
 
     status_check = col.count_documents({"method": "GET", "path": "/status"})
     print(f"{status_check} status check")
-    client.close()
 
 
 if __name__ == '__main__':
-    log_stats()
+    client = MongoClient()
+    db = client.logs
+    col = db.nginx
+    log_stats(col)
+    client.close()
