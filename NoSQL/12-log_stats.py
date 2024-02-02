@@ -19,7 +19,5 @@ if __name__ == '__main__':
         print(f"\tmethod {method}: {output}")
 
     status_check = col.count_documents({"path": "/status"})
-
     print(f"{status_check} status check")
-
     client.close()
