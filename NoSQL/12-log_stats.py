@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     print("Methods:")
     for method in methods:
-        output = col.count_documents({"method": {"$regex": method}})
+        output = col.count_documents({"method": method})
         print(f"\tmethod {method}: {output}")
 
     status_check = col.count_documents({"path": "/status"})
