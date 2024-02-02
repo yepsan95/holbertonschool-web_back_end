@@ -6,7 +6,6 @@ from pymongo import MongoClient
 
 def log_stats(col):
     """Prints stats about Nginx logs stored in MongoDB"""
-
     number_of_logs = col.count_documents({})
     print(f"{number_of_logs} logs")
 
