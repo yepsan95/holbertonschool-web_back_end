@@ -37,3 +37,5 @@ print(f"\tmethod PUT: {number_of_put}")
 print(f"\tmethod PATCH: {number_of_patch}")
 print(f"\tmethod DELETE: {number_of_delete}")
 print(f"{status_check} status check")
+
+client.close()
