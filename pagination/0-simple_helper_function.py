@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Defines a function index_range that returns and index range
 of items on a specific page using pagination."""
-from typing import Literal, Tuple
+from typing import Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
