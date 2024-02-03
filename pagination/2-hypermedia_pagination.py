@@ -3,7 +3,7 @@
 of items on a specific page using pagination."""
 import csv
 import math
-from typing import List, Literal, Optional, Tuple, TypedDict
+from typing import List, Optional, Tuple, TypedDict
 
 
 class Server:
