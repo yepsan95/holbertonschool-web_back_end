@@ -1,5 +1,5 @@
 
-## Pagination
+# Pagination
 ### This is a directory for Holberton School's Project **Pagination**.
 
 ## Resources
