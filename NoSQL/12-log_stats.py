@@ -4,25 +4,24 @@
 from pymongo import MongoClient
 
 
-def log_stats(col):
-    """Prints stats about Nginx logs stored in MongoDB"""
-    number_of_logs = col.count_documents({})
-    print(f"{number_of_logs} logs")
+def helper(a: dict) -> int:
+    """Returns log"""
+    client = MongoClient('mongodb://127.0.0.1:27017')
+    logs = client.logs.nginx
+    return logs.count_documents(a)
 
-    methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
+def main():
+    """Provides stats about Nginx logs stored in MongoDB"""
+    print(f"{helper({})} logs")
     print("Methods:")
-    for method in methods:
-        output = col.count_documents({"method": method})
-        print(f"\tmethod {method}: {output}")
+    print(f"\tmethod GET: {helper({'method': 'GET'})}")
+    print(f"\tmethod POST: {helper({'method': 'POST'})}")
+    print(f"\tmethod PUT: {helper({'method': 'PUT'})}")
+    print(f"\tmethod PATCH: {helper({'method': 'PATCH'})}")
+    print(f"\tmethod DELETE: {helper({'method': 'DELETE'})}")
+    print(f"{helper({'method': 'GET', 'path': '/status'})} status check")
 
-    status_check = col.count_documents({"method": "GET", "path": "/status"})
-    print(f"{status_check} status check")
 
-
-if __name__ == '__main__':
-    client = MongoClient("mongodb://127.0.0.1:27017")
-    db = client.logs
-    col = db.nginx
-    log_stats(col)
-    client.close()
+if __name__ == "__main__":
+    main()
