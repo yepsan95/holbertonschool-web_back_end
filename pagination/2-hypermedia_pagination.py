@@ -3,7 +3,7 @@
 of items on a specific page using pagination."""
 import csv
 import math
-from typing import List, Optional, Tuple, TypedDict
+from typing import Dict, List, Tuple
 
 
 class Server:
@@ -42,15 +42,7 @@ class Server:
         page_contents = csv_data[start_index:end_index]
         return page_contents
 
-    GetPageReturn = TypedDict('GetPageReturn', {"page_size": int,
-                                                "page": int,
-                                                "data": List[List],
-                                                "next_page": Optional[int],
-                                                "prev_page": Optional[int],
-                                                "total_pages": int
-                                                })
-
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> GetPageReturn:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """Returns hypermedia metadata of the dataset.
 
         Args:
@@ -61,13 +53,14 @@ class Server:
         total_len = len(self.__dataset)
         total_pages = math.ceil(total_len / page_size)
         item_count = page * page_size
-        return_value = {}
-        return_value["page_size"] = page_size if item_count < total_len else 0
-        return_value["page"] = page
-        return_value["data"] = data
-        return_value["next_page"] = page + 1 if page < total_pages else None
-        return_value["prev_page"] = page - 1 if page > 1 else None
-        return_value["total_pages"] = total_pages
+        return_value = {
+                       "page_size" : page_size if item_count < total_len else 0,
+                       "page" : page,
+                       "data" : data,
+                       "next_page" : page + 1 if page < total_pages else None,
+                       "prev_page" : page - 1 if page > 1 else None,
+                       "total_pages" : total_pages,
+                        }
 
         return return_value
 
