@@ -47,11 +47,11 @@ class Server:
         pages = []
         next_index = index + page_size
         for i in range(index, index + page_size):
-                if not self.indexed_dataset().get(i):
-                    i += 1
-                    next_index += 1
-                pages.append(self.indexed_dataset()[i])
-        return_dict= {
+            if not self.indexed_dataset().get(i):
+                i += 1
+                next_index += 1
+            pages.append(self.indexed_dataset()[i])
+        return_dict = {
                       "index": index,
                       "next_index": next_index,
                       "page_size": page_size,
