@@ -54,12 +54,12 @@ class Server:
         total_pages = math.ceil(total_len / page_size)
         item_count = page * page_size
         return_value = {
-                       "page_size" : page_size if item_count < total_len else 0,
-                       "page" : page,
-                       "data" : data,
-                       "next_page" : page + 1 if page < total_pages else None,
-                       "prev_page" : page - 1 if page > 1 else None,
-                       "total_pages" : total_pages,
+                       "page_size": page_size if item_count < total_len else 0,
+                       "page": page,
+                       "data": data,
+                       "next_page": page + 1 if page < total_pages else None,
+                       "prev_page": page - 1 if page > 1 else None,
+                       "total_pages": total_pages,
                         }
 
         return return_value
