@@ -24,6 +24,7 @@ def log_stats(col):
     all_ips = [log["ip"] for log in all_logs]
     all_ips.sort()
     unique_ips = list(OrderedDict.fromkeys(all_ips))
+
     ips_dict = {}
     for ip in unique_ips:
         number_of_ocurrences = all_ips.count(ip)
