@@ -1,4 +1,4 @@
-import Building from '5-building'
+import Building from '5-building';
 
 export default class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
@@ -8,13 +8,13 @@ export default class SkyHighBuilding extends Building {
     if (typeof (floors) !== 'number') {
       throw TypeError('floors must be a number');
     }
-	super(sqft);
+    super(sqft);
     this._floors = floors;
   }
 
   evacuationWarningMessage() {
-    warningMessage = `Evacuate slowly the ${this.floors} floors`;
-	return warningMessage;
+    const warningMessage = `Evacuate slowly the ${this.floors} floors`;
+    return warningMessage;
   }
 
   get sqft() {
