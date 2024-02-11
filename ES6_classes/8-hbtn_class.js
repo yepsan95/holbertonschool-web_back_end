@@ -1,4 +1,4 @@
-export default HolbertonClass {
+export default class HolbertonClass {
   constructor(size, location) {
     if (typeof (size) !== 'number') {
       throw TypeError('size must be a number');
