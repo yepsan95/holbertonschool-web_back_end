@@ -10,12 +10,12 @@ export default class Car {
       throw TypeError('color must be a string');
     }
     this._brand = brand;
-	this._motor = motor;
-	this._color = color;
+    this._motor = motor;
+    this._color = color;
   }
 
   cloneCar() {
-    let newCar = new Car(this._brand, this._motor, this._color);
+    const newCar = new Car(this._brand, this._motor, this._color);
     return newCar;
   }
 }
