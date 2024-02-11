@@ -3,7 +3,7 @@ export class HolbertonClass {
     if (typeof (year) !== 'number') {
       throw TypeError('year must be a number');
 	}
-    if (typeof (location) !== 'string) {
+    if (typeof (location) !== 'string') {
       throw TypeError('location must be a number');
 	}
     this._year = year;
