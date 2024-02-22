@@ -3,10 +3,8 @@ export default function handleResponseFromAPI(promise) {
     console.log('Got a response from the API');
     const resolveObject = {
       status: 200,
-	  body: success,
+      body: 'success',
     };
     return resolveObject;
-  }).catch(() => {
-    return (new Error());
-  });
+  }).catch(() => {return (new Error())});
 }
