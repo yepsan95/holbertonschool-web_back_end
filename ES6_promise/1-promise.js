@@ -3,12 +3,14 @@ export default function getFullResponseFromAPI(success) {
     if (success) {
       const successObject = {
         status: 200,
-	    body: 'Success',
+        body: 'Success',
       };
-	  resolve(successObject);
+      resolve(successObject);
     } else {
       const errorObject = new Error('The fake API is not working currently');
       reject(errorObject);
     }
   });
+
+  return myPromise;
 }
