@@ -1,12 +1,12 @@
-import signUpUser from './4-user-promise'
-import uploadPhoto from './5-photo-reject'
+import signUpUser from './4-user-promise';
+import uploadPhoto from './5-photo-reject';
 
 export default async function handleProfileSignup(firstName, lastName, filename) {
   const returnArray = [];
 
   try {
     const signUp = await signUpUser(firstName, lastName);
-	returnArray.push(signUp);
+    returnArray.push(signUp);
   } catch (error) {
     returnArray.push({
       status: 'rejected',
@@ -15,8 +15,8 @@ export default async function handleProfileSignup(firstName, lastName, filename)
   }
 
   try {
-    const upload= await uploadPhoto(firstName, lastName);
-	returnArray.push(upload);
+    const upload = await uploadPhoto(filename);
+    returnArray.push(upload);
   } catch (error) {
     returnArray.push({
       status: 'rejected',
